@@ -1,0 +1,15 @@
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\bin\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.exe
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\bin\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.deps.json
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\bin\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.runtimeconfig.json
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\bin\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.dll
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\bin\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.pdb
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.AssemblyInfoInputs.cache
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.AssemblyInfo.cs
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.csproj.CoreCompileInputs.cache
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.sourcelink.json
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.dll
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\refint\OOP_2_Fabrikant_T.R_231-333.dll
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.pdb
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\OOP_2_Fabrikant_T.R_231-333.genruntimeconfig.cache
+C:\Users\vrrrr\source\repos\OOP\OOP_2_Fabrikant_T.R_231-333\obj\Debug\net8.0\ref\OOP_2_Fabrikant_T.R_231-333.dll
