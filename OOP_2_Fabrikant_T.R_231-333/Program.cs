@@ -9,8 +9,8 @@ namespace OOP2
         static void Menu()
         {
             Console.WriteLine("\n1 - Init LinkedList\n2 - Add val in list");
-            Console.WriteLine("3 - Delete all node with current val\n4 - Print LinkedList");
-            Console.WriteLine("5 - Exit");
+            Console.WriteLine("3 - Delete all node with current val\n4 - Copy and edit struct and class"); 
+            Console.WriteLine("5 - Print LinkedList\n6 - Exit");
             Console.WriteLine("Enter number\n");
         }
 
@@ -90,9 +90,18 @@ namespace OOP2
                         list.DeleteAllNodeWithVal(delete);
                         break;
                     case 4:
-                        list.PrintListNode();
+                        int[] arr = InputArray();
+                        LinkedList copyList = list.With(arr);
+                        Console.Write("Copy LinkedList: ");
+                        copyList.PrintListNode();
+                        Node copyNode = list.head.With(list.head.val, list.head.next);
+                        Console.Write("Copy node: ");
+                        Console.WriteLine("val: " + copyNode.val);
                         break;
                     case 5:
+                        list.PrintListNode();
+                        break;
+                    case 6:
                         flag = false;
                         break;
                 }
@@ -102,7 +111,7 @@ namespace OOP2
 
         struct LinkedList
         {
-            private Node head;
+            public Node head;
             public int length;
 
             public void InitLinkedList(int[] arr)
@@ -163,6 +172,13 @@ namespace OOP2
                 }
             }
 
+            public LinkedList With(int[] arr)
+            {
+                LinkedList newList = this;
+                newList.InitLinkedList(arr);
+                return newList;
+            }
+
             public void PrintListNode()
             {
                 Node current = head;
@@ -186,6 +202,11 @@ namespace OOP2
                 this.val = val;
                 this.next = next;
             }
+
+            public Node With(int val, Node next) {
+                return new Node(val, next);
+            }
+
         }
 
     }
