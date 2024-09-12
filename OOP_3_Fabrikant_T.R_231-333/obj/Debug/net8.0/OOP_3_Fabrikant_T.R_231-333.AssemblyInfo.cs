@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOP_3_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+329d12dfd7f95ac3c6cfdb03cd60e71f2b6c9cb2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d5cf026d1f06b057f6e8219b9571e5b6fe69919")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOP_3_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOP_3_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

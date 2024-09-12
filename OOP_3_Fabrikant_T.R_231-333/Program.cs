@@ -2,124 +2,136 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 
-namespace DataAccess
+public class Student
 {
+    private string firstName;
+    private string lastName;
+    private int age;
+    private double avarageRating;
 
-    public class Student
+    public string FirstName
     {
-        private string _firstName;
-        private string _lastName;
-        private int _age;
-        private double _averageGrade;
-
-        public string FirstName
+        get => firstName;
+        set
         {
-            get => _firstName;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Имя не может быть пустым");
-                _firstName = value;
-            }
-        }
-
-        public string LastName
-        {
-            get => _lastName;
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Фамилия не может быть пустой");
-                _lastName = value;
-            }
-        }
-
-        public int Age
-        {
-            get => _age;
-            set
-            {
-                if (value < 0 || value > 150)
-                    throw new ArgumentException("Возраст должен быть от 0 до 150");
-                _age = value;
-            }
-        }
-
-        public double AverageGrade
-        {
-            get => _averageGrade;
-            set
-            {
-                if (value < 0 || value > 10)
-                    throw new ArgumentException("Средний балл должен быть от 0 до 10");
-                _averageGrade = value;
-            }
-        }
-
-        public Student(string firstName, string lastName, int age, double averageGrade)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-            AverageGrade = averageGrade;
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Имя не может быть пустым");
+            firstName = value;
         }
     }
 
-
-    public class University
+    public string LastName
     {
-        private readonly List<Student> _students = new List<Student>();
-
-        public void AddStudent(Student student)
+        get => lastName;
+        set
         {
-            if (student == null)
-                throw new ArgumentNullException(nameof(student), "Студент не может быть null");
-            _students.Add(student);
-        }
-
-        public void RemoveStudent(Student student)
-        {
-            if (student == null)
-                throw new ArgumentNullException(nameof(student), "Студент не может быть null");
-            _students.Remove(student);
-        }
-
-        public Student FindStudentByName(string firstName, string lastName)
-        {
-            return _students.FirstOrDefault(s => s.FirstName == firstName && s.LastName == lastName);
-        }
-
-        public IEnumerable<Student> GetAllStudents()
-        {
-            return _students.AsReadOnly();
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Фамилия не может быть пустой");
+            lastName = value;
         }
     }
 
-    public class StudentsRepository
+    public int Age
     {
-        private readonly string _filePath;
-
-        public StudentsRepository(string filePath)
+        get => age;
+        set
         {
-            _filePath = filePath;
+            if (value < 0)
+                throw new ArgumentException("Возраст не может быть отрицательным");
+            age = value;
         }
+    }
 
-        public void SaveStudents(IEnumerable<Student> students)
+    public double AvarageRating
+    {
+        get => avarageRating;
+        set
         {
-            var json = JsonSerializer.Serialize(students);
-            File.WriteAllText(_filePath, json);
+            if (value < 0 || value > 5)
+                throw new ArgumentException("Средний балл должен быть между 0 и 5");
+            avarageRating = value;
         }
+    }
 
-        public IEnumerable<Student> LoadStudents()
+    public Student(string firstName, string lastName, int age, double avarageRating)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Age = age;
+        AvarageRating = avarageRating;
+    }
+}
+
+public class University
+{
+    private List<Student> students = new List<Student>();
+
+
+    public void AddStudent(Student student)
+    {
+        if (student == null)
+            throw new ArgumentNullException(nameof(student), "Студент не может быть null");
+        students.Add(student);
+    }
+
+ 
+    public void RemoveStudent(string firstName, string lastName)
+    {
+        Student student = students.FirstOrDefault(s => s.FirstName == firstName && s.LastName == lastName);
+        if (student != null)
+            students.Remove(student);
+    }
+
+    public Student FindStudent(string firstName, string lastName)
+    {
+        Student student = students.FirstOrDefault(s => s.FirstName == firstName && s.LastName == lastName);
+        return student;
+    }
+
+    public List<Student> GetAllStudents()
+    {
+        return students;
+    }
+}
+
+public class StudentsRepository
+{
+    private readonly string filePath;
+
+    public StudentsRepository(string filePath)
+    {
+        this.filePath = filePath;
+    }
+
+    public void SaveStudents(List<Student> students)
+    {
+        using (StreamWriter writer = new StreamWriter(filePath))
         {
-            if (!File.Exists(_filePath))
-                return Enumerable.Empty<Student>();
-
-            var json = File.ReadAllText(_filePath);
-            return JsonSerializer.Deserialize<IEnumerable<Student>>(json);
+            foreach (Student student in students)
+            {
+                writer.WriteLine($"{student.FirstName},{student.LastName},{student.Age},{student.AvarageRating}");
+            }
         }
+    }
+
+    public List<Student> LoadStudents()
+    {
+        List<Student> students = new List<Student>();
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] data = line.Split(',');
+                if (data.Length == 5)
+                {
+                    Student student = new Student(data[0], data[1], int.Parse(data[2]), double.Parse(data[3] + "," + data[4]));
+                    students.Add(student);
+                }
+            }
+        }
+        return students;
     }
 }
 
@@ -127,24 +139,24 @@ class Program
 {
     static void Main()
     {
-        var university = new DataAccess.University();
-        var repository = new DataAccess.StudentsRepository("students.json");
+        University university = new University();
 
-
-        var student1 = new DataAccess.Student("Иван", "Иванов", 20, 8.5);
-        var student2 = new DataAccess.Student("Петр", "Петров", 22, 7.0);
+        Student student1 = new Student("Иван", "Иванов", 20, 4.5);
+        Student student2 = new Student("Петр", "Петров", 22, 3.7);
 
         university.AddStudent(student1);
         university.AddStudent(student2);
 
-        
+        StudentsRepository repository = new StudentsRepository("C:\\Users\\vrrrr\\source\\repos\\OOP\\OOP_3_Fabrikant_T.R_231-333\\student.txt");
         repository.SaveStudents(university.GetAllStudents());
 
-    
-        var loadedStudents = repository.LoadStudents();
+        List<Student> loadedStudents = repository.LoadStudents();
+
         foreach (var student in loadedStudents)
         {
-            Console.WriteLine($"Имя: {student.FirstName}, Фамилия: {student.LastName}, Возраст: {student.Age}, Средний балл: {student.AverageGrade}");
+            Console.WriteLine($"{student.FirstName} {student.LastName}, возраст: {student.Age}, средний балл: {student.AvarageRating}");
         }
+
+        
     }
 }
