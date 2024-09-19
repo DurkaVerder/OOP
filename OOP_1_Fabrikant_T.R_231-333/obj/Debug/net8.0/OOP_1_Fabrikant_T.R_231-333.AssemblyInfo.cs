@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOP_1_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+945b627a350b2cfb863151a213f3ede0371737e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb336cede85ec4958109d41818c7da334dfbb3d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOP_1_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOP_1_Fabrikant_T.R_231-333")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
