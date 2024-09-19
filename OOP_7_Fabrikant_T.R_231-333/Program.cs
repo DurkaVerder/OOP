@@ -128,7 +128,7 @@ namespace OOP7
             int helicopterCount = aircrafts.OfType<Helicopter>().Count();
 
             Console.WriteLine($"Количество самолётов: {airplaneCount}");
-            Console.WriteLine($"Колтчество вертолётов: {helicopterCount}");
+            Console.WriteLine($"Количество вертолётов: {helicopterCount}");
         }
     }
 
